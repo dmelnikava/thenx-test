@@ -13,4 +13,8 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract ProfilePageBase openProfilePage();
 
+    public abstract GuidedWorkoutsPageBase openGuidedWorkoutsPage();
+
+    public abstract NoEquipmentHomeWorkoutPageBase openNoEquipmentHomeWorkoutPage();
+
 }

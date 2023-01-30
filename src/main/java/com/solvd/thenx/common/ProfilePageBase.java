@@ -13,4 +13,6 @@ public abstract class ProfilePageBase extends AbstractPage {
 
     public abstract EditProfilePageBase openEditProfilePage();
 
+    public abstract String getUserLocation();
+
 }

@@ -2,14 +2,17 @@ package com.solvd.thenx.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.solvd.thenx.common.EditProfilePageBase;
+import com.solvd.thenx.common.ProfilePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = EditProfilePageBase.class)
 public class EditProfilePage extends EditProfilePageBase implements IMobileUtils {
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_toolbar")
+    private ExtendedWebElement toolbar;
 
     @FindBy(id = "com.sysops.thenx:id/edit_profile_username")
     private ExtendedWebElement username;
@@ -47,13 +50,34 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     @FindBy(id = "com.sysops.thenx:id/edit_profile_max_dips")
     private ExtendedWebElement maxDip;
 
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_country")
+    private ExtendedWebElement userCountry;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_state")
+    private ExtendedWebElement userState;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_city")
+    private ExtendedWebElement userCity;
+
+    @FindBy(id = "com.sysops.thenx:id/country_code_picker_search")
+    private ExtendedWebElement countrySearcher;
+
+    @FindBy(id = "com.sysops.thenx:id/country_title")
+    private ExtendedWebElement countryTitle;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_save")
+    private ExtendedWebElement saveSettingsBtn;
+
+    @FindBy(id = "com.sysops.thenx:id/thenx_toolbar_back_icon")
+    private ExtendedWebElement backIcon;
+
     public EditProfilePage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public boolean isPageOpened() {
-        return username.isElementPresent();
+        return toolbar.isElementPresent();
     }
 
     @Override
@@ -119,5 +143,58 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     @Override
     public void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
         swipe(startXValue,startYValue, endXValue, endYValue, duration);
+    }
+
+    public void clickUserCountry() {
+        userCountry.click();
+    }
+
+    public void typeCountry(String country) {
+        countrySearcher.type(country);
+    }
+
+    public void clickCountryTitle() {
+        countryTitle.click();
+    }
+
+    public void clickUserState() {
+        userState.click();
+    }
+
+    public void typeState(String state) {
+        userState.type(state);
+    }
+
+    public void clickUserCity() {
+        userCity.click();
+    }
+
+    public void typeCity(String city) {
+        userCity.type(city);
+    }
+
+    public void clickSaveSettingsBtn() {
+        saveSettingsBtn.click();
+    }
+
+    public ProfilePageBase clickBackIcon() {
+        backIcon.click();
+        return initPage(getDriver(), ProfilePageBase.class);
+    }
+
+    public ProfilePageBase setUserLocation(String country, String state, String city) {
+        clickUserCountry();
+        typeCountry(country);
+        clickCountryTitle();
+
+        clickUserState();
+        typeState(state);
+
+        clickUserCity();
+        typeCity(city);
+
+        clickSaveSettingsBtn();
+
+        return clickBackIcon();
     }
 }

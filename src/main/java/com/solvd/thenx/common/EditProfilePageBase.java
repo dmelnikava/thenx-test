@@ -37,4 +37,6 @@ public abstract class EditProfilePageBase extends AbstractPage {
 
     public abstract void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
+    public abstract ProfilePageBase setUserLocation(String country, String state, String city);
+
 }
