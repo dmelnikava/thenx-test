@@ -17,6 +17,15 @@ public class ProfilePage extends ProfilePageBase implements IMobileUtils {
     @FindBy(id = "com.sysops.thenx:id/profile_location")
     private ExtendedWebElement userLocation;
 
+    @FindBy(id = "com.sysops.thenx:id/activity_post_constraint")
+    private ExtendedWebElement completedWorkoutPost;
+
+    @FindBy(id = "com.sysops.thenx:id/activity_post_workout_title")
+    private ExtendedWebElement postWorkoutTitle;
+
+    @FindBy(id = "com.sysops.thenx:id/activity_post_workout_subtitle")
+    private ExtendedWebElement postWorkoutSubtitle;
+
     public ProfilePage(WebDriver driver) {
         super(driver);
     }
@@ -32,7 +41,26 @@ public class ProfilePage extends ProfilePageBase implements IMobileUtils {
         return initPage(getDriver(), EditProfilePageBase.class);
     }
 
+    @Override
     public String getUserLocation() {
         return userLocation.getText();
     }
+
+    @Override
+    public boolean isPostPresent() {
+        return completedWorkoutPost.isElementPresent();
+    }
+
+    @Override
+    public String getPostWorkoutTitle() {
+        return postWorkoutTitle.getText();
+    }
+
+    @Override
+    public String getPostWorkoutSubtitle() {
+        return postWorkoutSubtitle.getText();
+    }
+
+//    Upper Body
+//    No Equipment Home Beginner Program
 }

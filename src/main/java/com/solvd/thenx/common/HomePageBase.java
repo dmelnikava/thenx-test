@@ -15,6 +15,10 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract GuidedWorkoutsPageBase openGuidedWorkoutsPage();
 
-    public abstract NoEquipmentHomeWorkoutPageBase openNoEquipmentHomeWorkoutPage();
+    public abstract void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
+
+    public abstract void swipeToNoEquipmentWorkout(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
+
+    public abstract NoEquipmentWorkoutPageBase openNoEquipmentWorkoutPage();
 
 }

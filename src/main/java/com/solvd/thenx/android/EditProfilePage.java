@@ -145,43 +145,53 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
         swipe(startXValue,startYValue, endXValue, endYValue, duration);
     }
 
+    @Override
     public void clickUserCountry() {
         userCountry.click();
     }
 
+    @Override
     public void typeCountry(String country) {
         countrySearcher.type(country);
     }
 
+    @Override
     public void clickCountryTitle() {
         countryTitle.click();
     }
 
+    @Override
     public void clickUserState() {
         userState.click();
     }
 
+    @Override
     public void typeState(String state) {
         userState.type(state);
     }
 
+    @Override
     public void clickUserCity() {
         userCity.click();
     }
 
+    @Override
     public void typeCity(String city) {
         userCity.type(city);
     }
 
+    @Override
     public void clickSaveSettingsBtn() {
         saveSettingsBtn.click();
     }
 
+    @Override
     public ProfilePageBase clickBackIcon() {
         backIcon.click();
         return initPage(getDriver(), ProfilePageBase.class);
     }
 
+    @Override
     public ProfilePageBase setUserLocation(String country, String state, String city) {
         clickUserCountry();
         typeCountry(country);

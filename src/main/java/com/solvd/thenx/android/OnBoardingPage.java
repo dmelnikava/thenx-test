@@ -89,15 +89,10 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
     }
 
     @Override
-    public void swipeHeightNumberPicker(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-    }
-
-    @Override
     public void swipeFor164Height(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipeHeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
-        swipeHeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
-        swipeHeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
     }
 
     @Override
@@ -106,15 +101,10 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
     }
 
     @Override
-    public void swipeWeightNumberPicker(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-    }
-
-    @Override
     public void swipeFor64Weight(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipeWeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
-        swipeWeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
-        swipeWeightNumberPicker(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
     }
 
     @Override

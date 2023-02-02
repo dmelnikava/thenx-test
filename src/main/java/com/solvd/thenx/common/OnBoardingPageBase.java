@@ -18,13 +18,9 @@ public abstract class OnBoardingPageBase extends AbstractPage {
 
 	public abstract void clickCmHeightPicker();
 
-	public abstract void swipeHeightNumberPicker(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
-
 	public abstract void swipeFor164Height(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
 	public abstract void clickKgWeightPicker();
-
-	public abstract void swipeWeightNumberPicker(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
 	public abstract void swipeFor64Weight(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 

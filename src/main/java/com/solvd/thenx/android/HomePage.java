@@ -4,7 +4,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.solvd.thenx.common.GuidedWorkoutsPageBase;
 import com.solvd.thenx.common.HomePageBase;
-import com.solvd.thenx.common.NoEquipmentHomeWorkoutPageBase;
+import com.solvd.thenx.common.NoEquipmentWorkoutPageBase;
 import com.solvd.thenx.common.ProfilePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
@@ -21,7 +21,7 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     private ExtendedWebElement viewAllWorkoutsBtn;
 
     @ExtendedFindBy(text = "No Equipment Home Beginner Program")
-    private ExtendedWebElement noEquipmentHomeWorkout;
+    private ExtendedWebElement noEquipmentWorkout;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -45,8 +45,20 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     }
 
     @Override
-    public NoEquipmentHomeWorkoutPageBase openNoEquipmentHomeWorkoutPage() {
-        noEquipmentHomeWorkout.click();
-        return initPage(getDriver(), NoEquipmentHomeWorkoutPageBase.class);
+    public void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+    }
+
+    @Override
+    public void swipeToNoEquipmentWorkout(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+    }
+
+    @Override
+    public NoEquipmentWorkoutPageBase openNoEquipmentWorkoutPage() {
+        noEquipmentWorkout.click();
+        return initPage(getDriver(), NoEquipmentWorkoutPageBase.class);
     }
 }

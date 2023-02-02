@@ -15,4 +15,10 @@ public abstract class ProfilePageBase extends AbstractPage {
 
     public abstract String getUserLocation();
 
+    public abstract boolean isPostPresent();
+
+    public abstract String getPostWorkoutTitle();
+
+    public abstract String getPostWorkoutSubtitle();
+
 }
