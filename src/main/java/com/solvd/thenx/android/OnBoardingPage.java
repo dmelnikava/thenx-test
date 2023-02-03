@@ -90,9 +90,9 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
 
     @Override
     public void swipeFor164Height(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
     }
 
     @Override
@@ -102,9 +102,9 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
 
     @Override
     public void swipeFor64Weight(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
     }
 
     @Override
@@ -176,7 +176,7 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
 
     @Override
     public HomePageBase clickLoginBtn() {
-        if(isLoginBtnActive()) {
+        if (isLoginBtnActive()) {
             nextBtn.click();
         }
         return initPage(getDriver(), HomePageBase.class);
@@ -197,12 +197,12 @@ public class OnBoardingPage extends OnBoardingPageBase implements IMobileUtils {
         clickNextBtn();
 
         clickFitnessBeginnerLevel();
-        if(getFitnessBeginnerLevelCheck()){
+        if (getFitnessBeginnerLevelCheck()) {
             clickNextBtn();
         }
 
         clickBuildMuscleGoal();
-        if(getBuildMuscleGoalCheck()){
+        if (getBuildMuscleGoalCheck()) {
             clickNextBtn();
         }
 

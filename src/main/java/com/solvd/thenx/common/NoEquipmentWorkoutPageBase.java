@@ -20,6 +20,7 @@ public abstract class NoEquipmentWorkoutPageBase extends AbstractPage {
     public abstract void swipeWarmUp(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
     public abstract void closeWorkoutSession();
+
     public abstract void finishWorkout();
 
     public abstract ProfilePageBase clickSaveWorkoutBtn();

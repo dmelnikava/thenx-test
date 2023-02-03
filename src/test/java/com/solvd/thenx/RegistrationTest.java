@@ -17,7 +17,7 @@ public class RegistrationTest implements IAbstractTest, IMobileUtils {
         WelcomePageBase welcomePage = initPage(getDriver(), WelcomePageBase.class);
         OnBoardingPageBase onBoardingPage = welcomePage.openOnBoardingPage();
 
-        String pullup =  ValueGeneratorService.generateNumericString(2);
+        String pullup = ValueGeneratorService.generateNumericString(2);
         String pushup = ValueGeneratorService.generateNumericString(2);
         String squat = ValueGeneratorService.generateNumericString(2);
         String dip = ValueGeneratorService.generateNumericString(2);

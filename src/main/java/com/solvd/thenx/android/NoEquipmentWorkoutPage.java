@@ -65,7 +65,7 @@ public class NoEquipmentWorkoutPage extends NoEquipmentWorkoutPageBase implement
 
     @Override
     public void swipeWarmUp(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        if(warmupExercise.isElementPresent()) {
+        if (warmupExercise.isElementPresent()) {
             swipe(startXValue, startYValue, endXValue, endYValue, duration);
         }
     }

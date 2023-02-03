@@ -2,10 +2,7 @@ package com.solvd.thenx.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
-import com.solvd.thenx.common.GuidedWorkoutsPageBase;
-import com.solvd.thenx.common.HomePageBase;
-import com.solvd.thenx.common.NoEquipmentWorkoutPageBase;
-import com.solvd.thenx.common.ProfilePageBase;
+import com.solvd.thenx.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +19,9 @@ public class HomePage extends HomePageBase implements IMobileUtils {
 
     @ExtendedFindBy(text = "No Equipment Home Beginner Program")
     private ExtendedWebElement noEquipmentWorkout;
+
+    @ExtendedFindBy(text = "Shop equipment")
+    private ExtendedWebElement shopEquipmentBtn;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -46,19 +46,31 @@ public class HomePage extends HomePageBase implements IMobileUtils {
 
     @Override
     public void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+    }
+
+    @Override
+    public void doubleSwipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
     }
 
     @Override
     public void swipeToNoEquipmentWorkout(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
     }
 
     @Override
     public NoEquipmentWorkoutPageBase openNoEquipmentWorkoutPage() {
         noEquipmentWorkout.click();
         return initPage(getDriver(), NoEquipmentWorkoutPageBase.class);
+    }
+
+    @Override
+    public ShopEquipmentPageBase clickShowEquipmentBtn() {
+        shopEquipmentBtn.click();
+        return initPage(getDriver(), ShopEquipmentPageBase.class);
     }
 }

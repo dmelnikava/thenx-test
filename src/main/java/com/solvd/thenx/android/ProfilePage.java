@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProfilePageBase.class)
 public class ProfilePage extends ProfilePageBase implements IMobileUtils {
 
-    @FindBy(id ="com.sysops.thenx:id/profile_edit_profile")
+    @FindBy(id = "com.sysops.thenx:id/profile_edit_profile")
     private ExtendedWebElement editProfileBtn;
 
     @FindBy(id = "com.sysops.thenx:id/profile_location")
@@ -60,7 +60,4 @@ public class ProfilePage extends ProfilePageBase implements IMobileUtils {
     public String getPostWorkoutSubtitle() {
         return postWorkoutSubtitle.getText();
     }
-
-//    Upper Body
-//    No Equipment Home Beginner Program
 }

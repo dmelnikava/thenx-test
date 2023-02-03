@@ -142,7 +142,7 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
 
     @Override
     public void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
-        swipe(startXValue,startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
     }
 
     @Override
