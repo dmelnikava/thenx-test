@@ -3,6 +3,7 @@ package com.solvd.thenx.android;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.solvd.thenx.common.EditProfilePageBase;
 import com.solvd.thenx.common.ProfilePageBase;
+import com.solvd.thenx.common.WelcomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
@@ -70,6 +71,9 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
 
     @FindBy(id = "com.sysops.thenx:id/thenx_toolbar_back_icon")
     private ExtendedWebElement backIcon;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_logout")
+    private ExtendedWebElement logoutBtn;
 
     public EditProfilePage(WebDriver driver) {
         super(driver);
@@ -146,6 +150,13 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     }
 
     @Override
+    public void swipePageDownToLogoutBtn(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+        swipe(startXValue, startYValue, endXValue, endYValue, duration);
+    }
+
+    @Override
     public void clickUserCountry() {
         userCountry.click();
     }
@@ -206,5 +217,11 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
         clickSaveSettingsBtn();
 
         return clickBackIcon();
+    }
+
+    @Override
+    public WelcomePageBase clickLogoutBtn() {
+        logoutBtn.click();
+        return initPage(getDriver(), WelcomePageBase.class);
     }
 }

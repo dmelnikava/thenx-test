@@ -37,6 +37,8 @@ public abstract class EditProfilePageBase extends AbstractPage {
 
     public abstract void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
+    public abstract void swipePageDownToLogoutBtn(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
+
     public abstract void clickUserCountry();
 
     public abstract void typeCountry(String country);
@@ -56,5 +58,7 @@ public abstract class EditProfilePageBase extends AbstractPage {
     public abstract ProfilePageBase clickBackIcon();
 
     public abstract ProfilePageBase setUserLocation(String country, String state, String city);
+
+    public abstract WelcomePageBase clickLogoutBtn();
 
 }
