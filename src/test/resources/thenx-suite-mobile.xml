@@ -5,6 +5,7 @@
             <class name="com.solvd.thenx.EditProfileTest"/>
             <class name="com.solvd.thenx.RegistrationTest"/>
             <class name="com.solvd.thenx.ShopTest"/>
+            <class name="com.solvd.thenx.UsersSearchTest"/>
             <class name="com.solvd.thenx.WorkoutsTest"/>
         </classes>
     </test>
