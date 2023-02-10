@@ -25,4 +25,6 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract ShopEquipmentPageBase clickShowEquipmentBtn();
 
+    public abstract FeedPageBase openFeedPage();
+
 }

@@ -20,7 +20,7 @@ public class EditProfileTest implements IAbstractTest, IMobileUtils {
         Assert.assertEquals(changedProfilePage.getUserLocation(), "Columbus, Ohio, United States", "User location isn't set up correctly.");
     }
 
-    @Test(testName = "Check that the welcom page opens when the user logs out from the profile.")
+    @Test(testName = "Check that the welcome page opens when the user logs out from the profile.")
     public void checkUserLogoutTest() {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         ProfilePageBase profilePage = homePage.openProfilePage();

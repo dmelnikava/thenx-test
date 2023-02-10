@@ -23,6 +23,9 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     @ExtendedFindBy(text = "Shop equipment")
     private ExtendedWebElement shopEquipmentBtn;
 
+    @FindBy(id = "com.sysops.thenx:id/home_feed")
+    private ExtendedWebElement feedBtn;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -72,5 +75,11 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     public ShopEquipmentPageBase clickShowEquipmentBtn() {
         shopEquipmentBtn.click();
         return initPage(getDriver(), ShopEquipmentPageBase.class);
+    }
+
+    @Override
+    public FeedPageBase openFeedPage() {
+        feedBtn.click();
+        return initPage(getDriver(), FeedPageBase.class);
     }
 }
