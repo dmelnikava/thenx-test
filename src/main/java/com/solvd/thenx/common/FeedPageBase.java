@@ -13,4 +13,12 @@ public abstract class FeedPageBase extends AbstractPage {
 
     public abstract UsersSearchPageBase clickSearchIcon();
 
+    public abstract String getActivityPostName();
+
+    public abstract void clickActivityPostOption();
+
+    public abstract void clickBlockUserBtn();
+
+    public abstract ProfilePageBase openProfilePage();
+
 }

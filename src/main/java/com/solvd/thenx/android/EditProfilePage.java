@@ -1,6 +1,7 @@
 package com.solvd.thenx.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.solvd.thenx.common.BlockedUsersPageBase;
 import com.solvd.thenx.common.EditProfilePageBase;
 import com.solvd.thenx.common.ProfilePageBase;
 import com.solvd.thenx.common.WelcomePageBase;
@@ -74,6 +75,9 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
 
     @FindBy(id = "com.sysops.thenx:id/edit_profile_logout")
     private ExtendedWebElement logoutBtn;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_blocked_users")
+    private ExtendedWebElement blockedUsersBtn;
 
     public EditProfilePage(WebDriver driver) {
         super(driver);
@@ -223,5 +227,11 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     public WelcomePageBase clickLogoutBtn() {
         logoutBtn.click();
         return initPage(getDriver(), WelcomePageBase.class);
+    }
+
+    @Override
+    public BlockedUsersPageBase clickBlockedUsersBtn() {
+        blockedUsersBtn.click();
+        return initPage(getDriver(), BlockedUsersPageBase.class);
     }
 }

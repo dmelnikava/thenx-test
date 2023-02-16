@@ -33,4 +33,23 @@ public class EditProfileTest implements IAbstractTest, IMobileUtils {
 
         Assert.assertTrue(welcomePage.isPageOpened(), "Welcome page isn't opened.");
     }
+
+    @Test(testName = "Check that after blocking the user, they will be displayed in the edit profile page.")
+    public void checkBlockedUserDisplayedInEditProfilePageTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        FeedPageBase feedPage = homePage.openFeedPage();
+
+        String activityPostUserName = feedPage.getActivityPostName();
+        feedPage.clickActivityPostOption();
+        feedPage.clickBlockUserBtn();
+
+        ProfilePageBase profilePage = feedPage.openProfilePage();
+        EditProfilePageBase editProfilePage = profilePage.openEditProfilePage();
+
+        editProfilePage.swipePageDownToLogoutBtn(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
+                Integer.parseInt(R.TESTDATA.get("duration")));
+
+        BlockedUsersPageBase blockedUsersPage = editProfilePage.clickBlockedUsersBtn();
+        Assert.assertTrue(activityPostUserName.contains(blockedUsersPage.getUserName()), "Blocked user name isn't correct.");
+    }
 }

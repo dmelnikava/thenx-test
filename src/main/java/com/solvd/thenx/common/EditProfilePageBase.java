@@ -61,4 +61,6 @@ public abstract class EditProfilePageBase extends AbstractPage {
 
     public abstract WelcomePageBase clickLogoutBtn();
 
+    public abstract BlockedUsersPageBase clickBlockedUsersBtn();
+
 }
