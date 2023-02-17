@@ -1,12 +1,10 @@
 package com.solvd.thenx;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.solvd.thenx.common.GuidedWorkoutsPageBase;
-import com.solvd.thenx.common.HomePageBase;
-import com.solvd.thenx.common.NoEquipmentWorkoutPageBase;
-import com.solvd.thenx.common.ProfilePageBase;
+import com.solvd.thenx.common.*;
 import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -54,5 +52,20 @@ public class WorkoutsTest implements IAbstractTest, IMobileUtils {
         softAssert.assertTrue(profilePage.isPostPresent(), "Workout post isn't saved.");
         softAssert.assertEquals("Upper Body", profilePage.getPostWorkoutTitle(), "Workout post title isn't correct.");
         softAssert.assertEquals("No Equipment Home Beginner Program", profilePage.getPostWorkoutSubtitle(), "Workout post subtitle isn't correct.");
+    }
+
+    @Test(testName = "Check the preservation of the liked workout of the day to the home stats.")
+    public void checkPreservationOfTheLikedWorkoutOfTheDayTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        WorkoutsLibraryPageBase workoutsLibraryPage = homePage.openWorkoutsLibrary();
+
+        String workoutOfTheDayTitle = workoutsLibraryPage.getWorkoutOfTheDayTitle();
+        workoutsLibraryPage.clickWorkoutOfTheDayTitle();
+        workoutsLibraryPage.clickWorkoutLikesIcon();
+        HomePageBase returnedHomePage = workoutsLibraryPage.backToHomePage();
+
+        HomeStatsPageBase homeStatsPage = returnedHomePage.openHomeStatsPage();
+
+        Assert.assertEquals(workoutOfTheDayTitle, homeStatsPage.getWorkoutTitle(), "Workout of the day was not licked.");
     }
 }

@@ -27,4 +27,8 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract FeedPageBase openFeedPage();
 
+    public abstract WorkoutsLibraryPageBase openWorkoutsLibrary();
+
+    public abstract HomeStatsPageBase openHomeStatsPage();
+
 }

@@ -26,6 +26,12 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     @FindBy(id = "com.sysops.thenx:id/home_feed")
     private ExtendedWebElement feedBtn;
 
+    @FindBy(id = "com.sysops.thenx:id/dashboard_workout_library")
+    private ExtendedWebElement workoutLibrary;
+
+    @FindBy(id = "com.sysops.thenx:id/home_stats")
+    private ExtendedWebElement homeStatsBtn;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -81,5 +87,17 @@ public class HomePage extends HomePageBase implements IMobileUtils {
     public FeedPageBase openFeedPage() {
         feedBtn.click();
         return initPage(getDriver(), FeedPageBase.class);
+    }
+
+    @Override
+    public WorkoutsLibraryPageBase openWorkoutsLibrary() {
+        workoutLibrary.click();
+        return initPage(getDriver(), WorkoutsLibraryPageBase.class);
+    }
+
+    @Override
+    public HomeStatsPageBase openHomeStatsPage() {
+        homeStatsBtn.click();
+        return initPage(getDriver(), HomeStatsPageBase.class);
     }
 }
