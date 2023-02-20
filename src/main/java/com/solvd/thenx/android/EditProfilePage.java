@@ -1,10 +1,7 @@
 package com.solvd.thenx.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.solvd.thenx.common.BlockedUsersPageBase;
-import com.solvd.thenx.common.EditProfilePageBase;
-import com.solvd.thenx.common.ProfilePageBase;
-import com.solvd.thenx.common.WelcomePageBase;
+import com.solvd.thenx.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
@@ -78,6 +75,9 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
 
     @FindBy(id = "com.sysops.thenx:id/edit_profile_blocked_users")
     private ExtendedWebElement blockedUsersBtn;
+
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_delete_account")
+    private ExtendedWebElement deleteAccountBtn;
 
     public EditProfilePage(WebDriver driver) {
         super(driver);
@@ -154,7 +154,7 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     }
 
     @Override
-    public void swipePageDownToLogoutBtn(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
+    public void swipePageDownToTheEnd(int startXValue, int startYValue, int endXValue, int endYValue, int duration) {
         swipe(startXValue, startYValue, endXValue, endYValue, duration);
         swipe(startXValue, startYValue, endXValue, endYValue, duration);
         swipe(startXValue, startYValue, endXValue, endYValue, duration);
@@ -233,5 +233,11 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     public BlockedUsersPageBase clickBlockedUsersBtn() {
         blockedUsersBtn.click();
         return initPage(getDriver(), BlockedUsersPageBase.class);
+    }
+
+    @Override
+    public ConfirmDeleteAccountPageBase clickDeleteAccountBtn() {
+        deleteAccountBtn.click();
+        return initPage(getDriver(), ConfirmDeleteAccountPageBase.class);
     }
 }

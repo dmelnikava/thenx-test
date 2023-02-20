@@ -2,6 +2,7 @@ package com.solvd.thenx;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.thenx.common.*;
+import com.solvd.thenx.utils.ValueGeneratorService;
 import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
@@ -26,7 +27,7 @@ public class EditProfileTest implements IAbstractTest, IMobileUtils {
         ProfilePageBase profilePage = homePage.openProfilePage();
         EditProfilePageBase editProfilePage = profilePage.openEditProfilePage();
 
-        editProfilePage.swipePageDownToLogoutBtn(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
+        editProfilePage.swipePageDownToTheEnd(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
                 Integer.parseInt(R.TESTDATA.get("duration")));
 
         WelcomePageBase welcomePage = editProfilePage.clickLogoutBtn();
@@ -46,10 +47,28 @@ public class EditProfileTest implements IAbstractTest, IMobileUtils {
         ProfilePageBase profilePage = feedPage.openProfilePage();
         EditProfilePageBase editProfilePage = profilePage.openEditProfilePage();
 
-        editProfilePage.swipePageDownToLogoutBtn(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
+        editProfilePage.swipePageDownToTheEnd(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
                 Integer.parseInt(R.TESTDATA.get("duration")));
 
         BlockedUsersPageBase blockedUsersPage = editProfilePage.clickBlockedUsersBtn();
         Assert.assertTrue(activityPostUserName.contains(blockedUsersPage.getUserName()), "Blocked user name isn't correct.");
+    }
+
+    @Test(testName = "Check deleting user's account by clicking 'Delete account button' in the profile editor.")
+    public void checkDeletingAccountInTheEditPageTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        ProfilePageBase profilePage = homePage.openProfilePage();
+        EditProfilePageBase editProfilePage = profilePage.openEditProfilePage();
+
+        editProfilePage.swipePageDownToTheEnd(Integer.parseInt(R.TESTDATA.get("startXValue")), Integer.parseInt(R.TESTDATA.get("startYValue")), Integer.parseInt(R.TESTDATA.get("endXValue")), Integer.parseInt(R.TESTDATA.get("endYValue")),
+                Integer.parseInt(R.TESTDATA.get("duration")));
+
+        ConfirmDeleteAccountPageBase confirmDeleteAccountPage = editProfilePage.clickDeleteAccountBtn();
+        WelcomePageBase welcomePage = confirmDeleteAccountPage
+                .clickOtherCheckbox()
+                .typeFeedback(ValueGeneratorService.generateAlphabeticString(10))
+                .clickDeleteAccountBtn();
+
+        Assert.assertTrue(welcomePage.isPageOpened(), "Welcome page isn't opened.");
     }
 }

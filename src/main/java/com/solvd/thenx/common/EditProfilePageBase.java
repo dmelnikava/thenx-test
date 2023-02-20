@@ -37,7 +37,7 @@ public abstract class EditProfilePageBase extends AbstractPage {
 
     public abstract void swipePageDown(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
-    public abstract void swipePageDownToLogoutBtn(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
+    public abstract void swipePageDownToTheEnd(int startXValue, int startYValue, int endXValue, int endYValue, int duration);
 
     public abstract void clickUserCountry();
 
@@ -62,5 +62,7 @@ public abstract class EditProfilePageBase extends AbstractPage {
     public abstract WelcomePageBase clickLogoutBtn();
 
     public abstract BlockedUsersPageBase clickBlockedUsersBtn();
+
+    public abstract ConfirmDeleteAccountPageBase clickDeleteAccountBtn();
 
 }
