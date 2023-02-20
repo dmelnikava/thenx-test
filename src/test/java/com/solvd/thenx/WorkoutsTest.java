@@ -37,17 +37,15 @@ public class WorkoutsTest implements IAbstractTest, IMobileUtils {
                 Integer.parseInt(R.TESTDATA.get("swipeToLeftEndYValue")), Integer.parseInt(R.TESTDATA.get("swipeToLeftDuration")));
         NoEquipmentWorkoutPageBase noEquipmentWorkoutPage = homePage.openNoEquipmentWorkoutPage();
 
-        softAssert.assertTrue(noEquipmentWorkoutPage.isPageOpened(), "No Equipment Workout page isn't opened.");
+        NoEquipmentWeek1PageBase noEquipmentWeek1Page = noEquipmentWorkoutPage.openFirstWeek();
+        NoEquipmentWeek1UpperBodyPageBase noEquipmentWeek1UpperBodyPage = noEquipmentWeek1Page.openUpperBodyWorkout();
 
-        noEquipmentWorkoutPage.openFirstWeek();
-        noEquipmentWorkoutPage.openUpperBodyWorkout();
-        noEquipmentWorkoutPage.startWorkout();
-        noEquipmentWorkoutPage.swipeWarmUp(Integer.parseInt(R.TESTDATA.get("swipeWarmUpStartXValue")), Integer.parseInt(R.TESTDATA.get("swipeWarmUpStartYValue")), Integer.parseInt(R.TESTDATA.get("swipeWarmUpEndXValue")),
+        noEquipmentWeek1UpperBodyPage.startWorkout();
+        noEquipmentWeek1UpperBodyPage.swipeWarmUp(Integer.parseInt(R.TESTDATA.get("swipeWarmUpStartXValue")), Integer.parseInt(R.TESTDATA.get("swipeWarmUpStartYValue")), Integer.parseInt(R.TESTDATA.get("swipeWarmUpEndXValue")),
                 Integer.parseInt(R.TESTDATA.get("swipeWarmUpEndYValue")), Integer.parseInt(R.TESTDATA.get("swipeWarmUpDuration")));
-        noEquipmentWorkoutPage.closeWorkoutSession();
-        noEquipmentWorkoutPage.finishWorkout();
-
-        ProfilePageBase profilePage = noEquipmentWorkoutPage.clickSaveWorkoutBtn();
+        noEquipmentWeek1UpperBodyPage.closeWorkoutSession();
+        noEquipmentWeek1UpperBodyPage.finishWorkout();
+        ProfilePageBase profilePage = noEquipmentWeek1UpperBodyPage.clickSaveWorkoutBtn();
 
         softAssert.assertTrue(profilePage.isPostPresent(), "Workout post isn't saved.");
         softAssert.assertEquals("Upper Body", profilePage.getPostWorkoutTitle(), "Workout post title isn't correct.");
