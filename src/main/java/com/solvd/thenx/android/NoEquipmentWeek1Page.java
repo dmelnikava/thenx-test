@@ -7,7 +7,6 @@ import com.solvd.thenx.common.NoEquipmentWeek1UpperBodyPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = NoEquipmentWeek1PageBase.class)
 public class NoEquipmentWeek1Page extends NoEquipmentWeek1PageBase implements IMobileUtils {

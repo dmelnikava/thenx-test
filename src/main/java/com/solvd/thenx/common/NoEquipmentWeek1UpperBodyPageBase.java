@@ -18,4 +18,5 @@ public abstract class NoEquipmentWeek1UpperBodyPageBase extends AbstractPage {
     public abstract void finishWorkout();
 
     public abstract ProfilePageBase clickSaveWorkoutBtn();
+
 }
