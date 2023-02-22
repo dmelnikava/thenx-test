@@ -65,4 +65,8 @@ public abstract class EditProfilePageBase extends AbstractPage {
 
     public abstract ConfirmDeleteAccountPageBase clickDeleteAccountBtn();
 
+    public abstract void clickEnableSoundsSwitcher();
+
+    public abstract boolean isEnableSoundsSwitcherChecked();
+
 }

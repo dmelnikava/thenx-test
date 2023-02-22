@@ -79,6 +79,9 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     @FindBy(id = "com.sysops.thenx:id/edit_profile_delete_account")
     private ExtendedWebElement deleteAccountBtn;
 
+    @FindBy(id = "com.sysops.thenx:id/edit_profile_enable_sounds")
+    private ExtendedWebElement enableSoundsSwitcher;
+
     public EditProfilePage(WebDriver driver) {
         super(driver);
     }
@@ -239,5 +242,15 @@ public class EditProfilePage extends EditProfilePageBase implements IMobileUtils
     public ConfirmDeleteAccountPageBase clickDeleteAccountBtn() {
         deleteAccountBtn.click();
         return initPage(getDriver(), ConfirmDeleteAccountPageBase.class);
+    }
+
+    @Override
+    public void clickEnableSoundsSwitcher() {
+        enableSoundsSwitcher.click();
+    }
+
+    @Override
+    public boolean isEnableSoundsSwitcherChecked() {
+        return enableSoundsSwitcher.isChecked();
     }
 }

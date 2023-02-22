@@ -71,4 +71,15 @@ public class EditProfileTest implements IAbstractTest, IMobileUtils {
 
         Assert.assertTrue(welcomePage.isPageOpened(), "Welcome page isn't opened.");
     }
+
+    @Test(testName = "Check the function of disabling sounds.")
+    public void checkFunctionOfDisablingSoundsTest() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        ProfilePageBase profilePage = homePage.openProfilePage();
+        EditProfilePageBase editProfilePage = profilePage.openEditProfilePage();
+
+        editProfilePage.clickEnableSoundsSwitcher();
+
+        Assert.assertFalse(editProfilePage.isEnableSoundsSwitcherChecked(), "Sounds wasn't disabled.");
+    }
 }
